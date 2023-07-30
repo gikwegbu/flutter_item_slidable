@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:slidable/slidable.dart';
+import 'package:slideable/Slideable.dart';
 
 void main() {
   test('adds one to input values', () {

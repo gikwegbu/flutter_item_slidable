@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slidable/slidable.dart';
+import 'package:slideable/Slideable.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Slidable Widget',
+      title: 'Slideable Widget',
       home: Home(),
     );
   }
@@ -28,7 +28,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // This is used to monitor the item index in the list, and later used to closeup or leave open the slide.
   int resetSlideIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +47,10 @@ class _HomeState extends State<Home> {
           Map<String, dynamic> _student = _classList[index];
           return GestureDetector(
             onLongPressDown: (val) {
+              // This allows you the time taken for a user to slide upon the widget in the list.
+              // NB: Using the onTap or onHorizontalDragStart seemed to have caused a seizure in the widget, hence my resulting to onLongPressDown
               setState(() {
+                // This updates the widget, and inturn rebuilds it, thereby notifying the Slidable widget to close an already slide item
                 resetSlideIndex = index;
               });
             },
@@ -53,7 +58,8 @@ class _HomeState extends State<Home> {
               context: context,
               student: _student,
               index: index,
-              resetSlide: index == resetSlideIndex ? false : true,
+              resetSlide: index == resetSlideIndex ? false : true, 
+              // Reverse engineering the notion, meaning the Slidable widget will close all slid item, except one with false, i.e the currently slide item
             ),
           );
         },
@@ -62,13 +68,13 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Slidable _listItem({
+  Slideable _listItem({
     required BuildContext context,
     required Map<String, dynamic> student,
     required int index,
     required bool resetSlide,
   }) {
-    return Slidable(
+    return Slideable(
       resetSlide: resetSlide,
       items: <ActionItems>[
         ActionItems(

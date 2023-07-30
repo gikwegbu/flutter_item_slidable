@@ -1,7 +1,7 @@
-name: slidable
-description: A Flutter package that creates a flexible slidable list item.
+name: slideable
+description: A Flutter package that creates a flexible slideable list item.
 version: 0.0.1
-homepage: https://github.com/gikwegbu/flutter_item_slidable
+homepage: https://github.com/gikwegbu/flutter_item_slideable
 
 environment:
   sdk: ">=2.16.2 <3.0.0"

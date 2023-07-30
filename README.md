@@ -1,39 +1,84 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## Expandable Section
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This is an expandable section widget where users gets to insert a section/widget they'd want to toggle. The toggle controller is totally provided by the user, that way there's more flexibility and no limitation on how to provide the header/toggle controller.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- A widget section which serves as a container to the child you'd wish to toggle it's visibility.
+
+- A `fastOutSlowIn`  default but optional animation that allows you to control the kind of animation curve you want for the expanding section.
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+In the `pubspec.yaml` of you flutter project, add the following dependency:
 
 ```dart
-const like = 'sample';
+dependencies:
+ slideable: ^0.0.1
 ```
 
-## Additional information
+## Basic Usage
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+`ExpandableSection` has an `expand` boolean value, that is being controlled by your own custom header or widget, it also has a `child` value, where the supposed hidden widget's content lives and finally, an optional `curve` value to control the visibility toggle animation of hidden widget.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:expandable_section/expandable_section.dart';
+
+class Example extends StatefulWidget {
+  const Example({Key? key}) : super(key: key);
+
+  @override
+  State<Example> createState() => _ExampleState();
+}
+
+class _ExampleState extends State<Example> {
+  bool _expand = false;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _expand = !_expand;
+            });
+          },
+          child: const Text(
+            "Show more",
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        ExpandableSection(
+          expand: _expand,
+          child: const Text("This is the expanded value..."),
+        )
+      ],
+    );
+  }
+}
+
+```
+
+## FAQ
+How to toggle the expansion widget
+
+```dart
+bool _expand = false;
+
+onTap: () {
+  setState(() {
+   _expand = !_expand;
+  });
+},
+
+
+```
+
+## Example
+You can find the example code [here](https://github.com/gikwegbu/flutter_item_slideable/blob/main/example/example.dart)

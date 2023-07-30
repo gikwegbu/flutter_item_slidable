@@ -20,8 +20,8 @@ class ActionItems extends Object {
 // typedef IndexRetriever = void Function(int index);
 // typedef void IndexRetriever(int index);
 
-class Slidable extends StatefulWidget {
-  Slidable({
+class Slideable extends StatefulWidget {
+  Slideable({
     Key? key,
     required this.items,
     required this.child,
@@ -41,10 +41,10 @@ class Slidable extends StatefulWidget {
   final Curve? curve;
 
   @override
-  State<StatefulWidget> createState() => _SlidableState();
+  State<StatefulWidget> createState() => _SlideableState();
 }
 
-class _SlidableState extends State<Slidable> {
+class _SlideableState extends State<Slideable> {
   ScrollController controller = ScrollController();
 
   Size? childSize;
