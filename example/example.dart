@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slideable/Slideable.dart';
+import 'package:slideable/slideable.dart';
 
 void main() => runApp(const MyApp());
 
