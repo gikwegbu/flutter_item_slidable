@@ -33,7 +33,7 @@ import 'package:slideable/Slideable.dart';
 
 ![Slideable](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7atuoay1segaiu403zbk.gif)
 
-https://github.com/gikwegbu/flutter_item_slideable/assets/39649680/b24f7778-53a5-4551-8300-3f6b99034091
+<!-- https://github.com/gikwegbu/flutter_item_slideable/assets/39649680/b24f7778-53a5-4551-8300-3f6b99034091 -->
 
 
 `ActionItems`, controls the actions widget you would want to have in the display. This is a  `List<ActionItems>`, where, each actionItem consists of the `required` `icon` widget, which can be any accepted `Flutter Widget`, a `required` `onPress` function, that executes what you want that ActionItem to do, a defaulted `backgroundColor` of `transparent`, which is totally flexible to change and a `radius`, just incase you want to add a tweak to your design to match the `Slidable` child's borderRadius.
