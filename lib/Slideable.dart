@@ -1,4 +1,4 @@
 library slideable;
 
 
-export 'src/Slideable.dart';
+export 'src/slideable.dart';
