@@ -31,7 +31,7 @@ import 'package:slideable/Slideable.dart';
 
 ## Basic Usage
 
-
+![Slideable](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7atuoay1segaiu403zbk.gif)
 
 https://github.com/gikwegbu/flutter_item_slideable/assets/39649680/b24f7778-53a5-4551-8300-3f6b99034091
 
